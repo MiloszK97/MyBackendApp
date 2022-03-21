@@ -25,6 +25,23 @@ public class MealItemService {
        return mealItemRepository.findMealItemByID(profileID, mealID, date);
     }
 
+    public Optional<Double> totalCaloriesOfMeal(String profileID, Integer mealID, LocalDate date){
+        return mealItemRepository.totalCaloriesOfMeal(profileID, mealID, date);
+    }
+
+    public Optional<Double> totalProteinsOfMeal(String profileID, Integer mealID, LocalDate date){
+        return mealItemRepository.totalProteinsOfMeal(profileID, mealID, date);
+    }
+
+    public Optional<Double> totalFatOfMeal(String profileID, Integer mealID, LocalDate date){
+        return mealItemRepository.totalFatOfMeal(profileID, mealID, date);
+    }
+
+    public Optional<Double> totalCarbsOfMeal(String profileID, Integer mealID, LocalDate date){
+        return mealItemRepository.totalCarbsOfMeal(profileID, mealID, date);
+    }
+
+
     public void addNewMealItem(MealItem mealItem) {
         mealItemRepository.save(mealItem);
     }

@@ -27,9 +27,6 @@ public class MealItem {
     private Double itemCarbs;
     private String profileID;
     private Integer mealID;
-/*    @ManyToOne
-    @JoinColumn(name = "profileid", nullable = false, insertable = false, updatable = false)
-    private Profile profile;*/
     private LocalDate date;
 
     public MealItem(){}

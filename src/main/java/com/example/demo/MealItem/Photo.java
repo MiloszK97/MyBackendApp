@@ -2,41 +2,21 @@
 package com.example.demo.MealItem;
 
 import javax.annotation.Generated;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.Expose;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
 public class Photo {
 
-    @SerializedName("highres")
-    private String mHighres;
-    @SerializedName("is_user_uploaded")
-    private Boolean mIsUserUploaded;
-    @SerializedName("thumb")
-    private String mThumb;
-
-    public String getHighres() {
-        return mHighres;
-    }
-
-    public void setHighres(String highres) {
-        mHighres = highres;
-    }
-
-    public Boolean getIsUserUploaded() {
-        return mIsUserUploaded;
-    }
-
-    public void setIsUserUploaded(Boolean isUserUploaded) {
-        mIsUserUploaded = isUserUploaded;
-    }
+    @Expose
+    private String thumb;
 
     public String getThumb() {
-        return mThumb;
+        return thumb;
     }
 
     public void setThumb(String thumb) {
-        mThumb = thumb;
+        this.thumb = thumb;
     }
 
 }
