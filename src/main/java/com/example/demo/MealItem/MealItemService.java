@@ -90,4 +90,20 @@ public class MealItemService {
             mealItem.setItemCarbs(itemCarbs);
         }
     }
+
+    public Optional<Integer> totalWaterConsumed(String profileID, Integer mealID, LocalDate date){
+        return mealItemRepository.totalWaterConsumed(profileID, mealID, date);
+    }
+
+    public List<Optional<Double>> getDayMacros(String profileID, LocalDate date){
+        List<Optional<Double>> list = new ArrayList<>();
+
+        list.add(mealItemRepository.getSumCalories(profileID, date));
+        list.add(mealItemRepository.getSumProteins(profileID, date));
+        list.add(mealItemRepository.getSumFat(profileID, date));
+        list.add(mealItemRepository.getSumCarbs(profileID, date));
+
+        return list;
+    }
+
 }

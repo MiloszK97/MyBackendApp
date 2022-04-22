@@ -44,7 +44,10 @@ public class ProfileService {
                               Integer profileAge,
                               Integer profileHeight,
                               Double profileWeight,
-                              Integer profileTotCal) {
+                              Integer profileTotCal,
+                              Double profileTotProt,
+                              Double profileTotFat,
+                              Double profileTotCarbs) {
 
         Profile profile = profileRepository.findById(profileID).orElseThrow(() -> new IllegalStateException(
                 "Profile with id " + profileID + " does not exists"
@@ -69,7 +72,22 @@ public class ProfileService {
         if (profileTotCal != null  && !Objects.equals(profile.getProfileTotCal(), profileTotCal)){
             profile.setProfileTotCal(profileTotCal);
         }
-        
+
+        if (profileTotProt != null  && !Objects.equals(profile.getProfileTotProt(), profileTotProt)){
+            profile.setProfileTotProt(profileTotProt);
+        }
+
+        if (profileTotFat != null  && !Objects.equals(profile.getProfileTotFat(), profileTotFat)){
+            profile.setProfileTotFat(profileTotFat);
+        }
+
+        if (profileTotCarbs != null  && !Objects.equals(profile.getProfileTotCarbs(), profileTotCarbs)){
+            profile.setProfileTotCarbs(profileTotCarbs);
+        }
+
     }
 
+    public Optional<String> getProfileNickById(String profileID) {
+        return profileRepository.profileNickname(profileID);
+    }
 }

@@ -27,6 +27,11 @@ public class ProfileController {
         return profileService.getProfileById(profileID);
     }
 
+    @GetMapping(path = "nickname/{profileID}")
+    public Optional<String>getProfileNickById(@PathVariable("profileID") String profileID){
+        return profileService.getProfileNickById(profileID);
+    }
+
     @PostMapping
     public void addNewProfile(@RequestBody Profile profile){
         profileService.addNewProfile(profile);
@@ -44,8 +49,20 @@ public class ProfileController {
             @RequestParam(required = false) Integer profileAge,
             @RequestParam(required = false) Integer profileHeight,
             @RequestParam(required = false) Double profileWeight,
-            @RequestParam(required = false) Integer profileTotCal){
-        profileService.updateProfile(profileID, profileNickname, profileAge, profileHeight, profileWeight, profileTotCal);
+            @RequestParam(required = false) Integer profileTotCal,
+            @RequestParam(required = false) Double profileTotProt,
+            @RequestParam(required = false) Double profileTotFat,
+            @RequestParam(required = false) Double profileTotCarbs){
+        profileService.updateProfile(
+                profileID,
+                profileNickname,
+                profileAge,
+                profileHeight,
+                profileWeight,
+                profileTotCal,
+                profileTotProt,
+                profileTotFat,
+                profileTotCarbs);
     }
     
 }

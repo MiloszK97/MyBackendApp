@@ -27,4 +27,21 @@ public interface MealItemRepository extends JpaRepository<MealItem, UUID> {
 
     @Query(value = "select SUM (item_carbs) FROM MealItem WHERE profileID=?1 AND mealID=?2 AND date=?3", nativeQuery = true)
     Optional<Double> totalCarbsOfMeal(String profileID, Integer mealID, LocalDate date);
+
+    @Query(value = "select SUM (item_weight) FROM MealItem WHERE profileID=?1 AND mealID=?2 AND date=?3", nativeQuery = true)
+    Optional<Integer> totalWaterConsumed(String profileID, Integer mealID, LocalDate date);
+
+    @Query(value = "SELECT SUM(item_calories) FROM mealitem where profileid=?1 AND date=?2", nativeQuery = true)
+    Optional<Double> getSumCalories(String profileID, LocalDate date);
+
+    @Query(value = "SELECT SUM(item_proteins) FROM mealitem where profileid=?1 AND date=?2", nativeQuery = true)
+    Optional<Double> getSumProteins(String profileID, LocalDate date);
+
+    @Query(value = "SELECT SUM(item_fat) FROM mealitem where profileid=?1 AND date=?2", nativeQuery = true)
+    Optional<Double> getSumFat(String profileID, LocalDate date);
+
+    @Query(value = "SELECT SUM(item_carbs) FROM mealitem where profileid=?1 AND date=?2", nativeQuery = true)
+    Optional<Double> getSumCarbs(String profileID, LocalDate date);
+
+
 }

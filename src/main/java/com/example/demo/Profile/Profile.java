@@ -1,7 +1,10 @@
 package com.example.demo.Profile;
 
 import com.example.demo.MealItem.MealItem;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -31,19 +34,27 @@ public class Profile {
     private String profileGender;
     private Integer profileTotCal;
     private Integer waterAmount;
+    private Double profileTotProt;
+    private Double profileTotFat;
+    private Double profileTotCarbs;
     /*@OneToMany(mappedBy = "profile")
     private List<MealItem> items;*/
 
     public Profile() {}
 
-    public Profile(String profileID,
-                   String profileNickname,
-                   Integer profileAge,
-                   Integer profileHeight,
-                   Double profileWeight,
-                   String profileGender,
-                   Integer profileTotCal,
-                   Integer waterAmount) {
+    public Profile(
+            String profileID,
+            String profileNickname,
+            Integer profileAge,
+            Integer profileHeight,
+            Double profileWeight,
+            String profileGender,
+            Integer profileTotCal,
+            Integer waterAmount,
+            Double profileTotProt,
+            Double profileTotFat,
+            Double profileTotCarbs
+    ) {
         this.profileID = profileID;
         this.profileNickname = profileNickname;
         this.profileAge = profileAge;
@@ -52,5 +63,8 @@ public class Profile {
         this.profileGender = profileGender;
         this.profileTotCal = profileTotCal;
         this.waterAmount = waterAmount;
+        this.profileTotProt = profileTotProt;
+        this.profileTotFat = profileTotFat;
+        this.profileTotCarbs = profileTotCarbs;
     }
 }

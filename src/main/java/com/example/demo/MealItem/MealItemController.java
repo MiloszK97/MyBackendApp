@@ -72,48 +72,70 @@ public class MealItemController {
         return mealItemService.getProfileById(profileID, mealID, date);
     }
 
-    @GetMapping(path = "getmealmacros/{profileID}")
-    public Optional<Double>getMealMacrosKcal(
+    @GetMapping(path = "getWaterConsumed/{profileID}")
+    public Optional<Integer> getWaterConsumed(
             @PathVariable("profileID") String profileID,
             @RequestParam Integer mealID,
             @RequestParam("date")
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date){
-
-
-        return mealItemService.totalCaloriesOfMeal(profileID, mealID, date);
+        return mealItemService.totalWaterConsumed(profileID, mealID, date);
     }
 
-    @GetMapping(path = "getmealmacrosP/{profileID}")
-    public Optional<Double>getMealMacrosProt(
+    @GetMapping(path = "getdaymacros/{profileID}")
+    public List<Optional<Double>> getDayMacros(
             @PathVariable("profileID") String profileID,
-            @RequestParam Integer mealID,
             @RequestParam("date")
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date){
 
-
-        return mealItemService.totalProteinsOfMeal(profileID, mealID, date);
+        return mealItemService.getDayMacros(profileID, date);
     }
 
-    @GetMapping(path = "getmealmacrosF/{profileID}")
-    public Optional<Double>getMealMacrosFat(
+   @GetMapping(path = "getmealmacros/{profileID}")
+    public List<List<Optional<Double>>> getMealMacrosKcal(
             @PathVariable("profileID") String profileID,
             @RequestParam Integer mealID,
             @RequestParam("date")
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date){
 
+        List<Optional<Double>> list = new ArrayList<>();
+        List<Optional<Double>> list2 = new ArrayList<>();
+        List<Optional<Double>> list3 = new ArrayList<>();
+        List<Optional<Double>> list4 = new ArrayList<>();
+        List<Optional<Double>> list5 = new ArrayList<>();
+        List<List<Optional<Double>>> correctList = new ArrayList<>();
 
-        return mealItemService.totalFatOfMeal(profileID, mealID, date);
-    }
+        list.add(mealItemService.totalCaloriesOfMeal(profileID, 0, date));
+        list.add(mealItemService.totalProteinsOfMeal(profileID, 0, date));
+        list.add(mealItemService.totalFatOfMeal(profileID, 0, date));
+        list.add(mealItemService.totalCarbsOfMeal(profileID, 0, date));
 
-    @GetMapping(path = "getmealmacrosC/{profileID}")
-    public Optional<Double>getMealMacrosCarbs(
-            @PathVariable("profileID") String profileID,
-            @RequestParam Integer mealID,
-            @RequestParam("date")
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date){
+        list2.add(mealItemService.totalCaloriesOfMeal(profileID, 1, date));
+        list2.add(mealItemService.totalProteinsOfMeal(profileID, 1, date));
+        list2.add(mealItemService.totalFatOfMeal(profileID, 1, date));
+        list2.add(mealItemService.totalCarbsOfMeal(profileID, 1, date));
 
+        list3.add(mealItemService.totalCaloriesOfMeal(profileID, 2, date));
+        list3.add(mealItemService.totalProteinsOfMeal(profileID, 2, date));
+        list3.add(mealItemService.totalFatOfMeal(profileID, 2, date));
+        list3.add(mealItemService.totalCarbsOfMeal(profileID, 2, date));
 
-        return mealItemService.totalCarbsOfMeal(profileID, mealID, date);
+        list4.add(mealItemService.totalCaloriesOfMeal(profileID, 3, date));
+        list4.add(mealItemService.totalProteinsOfMeal(profileID, 3, date));
+        list4.add(mealItemService.totalFatOfMeal(profileID, 3, date));
+        list4.add(mealItemService.totalCarbsOfMeal(profileID, 3, date));
+
+        list5.add(mealItemService.totalCaloriesOfMeal(profileID, 4, date));
+        list5.add(mealItemService.totalProteinsOfMeal(profileID, 4, date));
+        list5.add(mealItemService.totalFatOfMeal(profileID, 4, date));
+        list5.add(mealItemService.totalCarbsOfMeal(profileID, 4, date));
+
+        correctList.add(0, list);
+        correctList.add(1, list2);
+        correctList.add(2, list3);
+        correctList.add(3, list4);
+        correctList.add(4, list5);
+
+        return correctList;
     }
 
     @PostMapping
