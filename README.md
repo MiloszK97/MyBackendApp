@@ -2,7 +2,7 @@
 
 Server side for [Calories Calculator](https://github.com/MiloszK97/Calories-Calculator) mobile app that handles API requests and DB.
 # 
-[Key Features](hhttps://github.com/MiloszK97/MyBackendApp/tree/main#key-features)  • [Related](https://github.com/MiloszK97/Calories-Calculator/blob/main/README.md#related) • [License](https://github.com/MiloszK97/Calories-Calculator/blob/main/README.md#license)
+[Key Features](https://github.com/MiloszK97/MyBackendApp/tree/main#key-features)  • [Related](https://github.com/MiloszK97/MyBackendApp/blob/main/README.md#related) • [License](https://github.com/MiloszK97/MyBackendApp/blob/main/README.md#license)
 
 ## Key Features
 
